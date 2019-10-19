@@ -113,10 +113,11 @@
         .in button {
             --field-size: 50px;
             --field-border-color: #ccc;
-            font-size: 30px;
+            font-size: 20px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
             0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            background: #ffffff;
+            background-color: black;
+            color: white;
             position: relative;
             width: 150px;
             height: 50px;
@@ -124,13 +125,15 @@
             margin-left: auto;
             margin-right: auto;
             overflow: hidden;
-                        font-family: Helvetica;
-                        border: none;
+            font-family: Helvetica;
+            border: none;
             text-align:center;
 
             display: block;
             border-radius: 10px;
             cursor: pointer;
+
+
 
         }
         .in input {
@@ -215,7 +218,7 @@
     document.querySelector("[type=\"submit\"]").onclick = () => {
         alert('Ты точно принёс?');
 
-        var url = "http://localhost:8080/needThis/delete";
+        var url = "http://176.9.59.8:8080/needThis/delete";
         var item = document.querySelector("[name=\"name\"]").value;
 
         fetch(url + '/' + item, {
