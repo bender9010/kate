@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        body {background: url(https://sun9-44.userapi.com/c607430/v607430889/41c2/fIeKMRmRYUM.jpg) no-repeat; background-size: 100%; }
+    </style>
+    <title>Удаляем</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+<div>
+    <form>
+        <input type="number" name="id" placeholder="Сюда написать что нужно удалить" />
+        <button type="submit">Забыть
+        </button>
+    </form>
+</div>
+{{#items}}
+    <div>
+        <p>{{id}}. {{name}} {{count}}шт</p>
+    </div>
+{{/items}}
+<script>
+    document.querySelector("[type=\"submit\"]").onclick = () => {
+        alert('bla bla');
+        var url = "http://localhost:8080";
+        var xhr = new XMLHttpRequest();
+        xhr.open("DELETE", url+'/deleteItem/'+document.querySelector("[type=\"number\"]").value, true);
+        xhr.onload = function () {
+            var users = JSON.parse(xhr.responseText);
+            if (xhr.readyState == 4 && xhr.status == "200") {
+                console.table(users);
+            } else {
+                console.error(users);
+            }
+        }
+        xhr.send(null);
+    };
+</script>
+</body>
+</html>

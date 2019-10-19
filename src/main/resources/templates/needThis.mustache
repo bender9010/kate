@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html xmlns:content="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body {background: url(https://sun9-12.userapi.com/c857416/v857416746/ae759/JEvueHvyk7o.jpg) no-repeat; background-size: 100%;}
+
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Arimo');
+
+        .top-menu {
+            position: relative;
+            background: rgba(34,34,34,.2);
+        }
+        .menu-main {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-main:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .left-item {float: left;}
+        .right-item {float: right;}
+        .navbar-logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .menu-main a {
+            text-decoration: none;
+            display: block;
+            line-height: 80px;
+            padding: 0 20px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-family: 'Arimo', sans-serif;
+            font-weight: bold;
+            color: white;
+            transition: .3s linear;
+        }
+        .menu-main a:hover {background: rgba(0,0,0,.3);}
+        @media (max-width: 830px) {
+            .menu-main {
+                padding-top: 90px;
+                text-align: center;
+            }
+            .navbar-logo {
+                position: absolute;
+                left: 50%;
+                top: 10px;
+                transform: translateX(-50%);
+            }
+            .menu-main li {
+                float: none;
+                display: inline-block;
+            }
+            .menu-main a {
+                line-height: normal;
+                padding: 20px 15px;
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 630px) {
+            .menu-main li {display: block;}
+        }
+    </style>
+    <style>
+        .pills {
+            margin-left: 0;
+            list-style: none;
+            font-family: Helvetica;
+            color: #000000;
+            border-bottom-left-radius: 70em;
+            border-top-left-radius: 70em;
+            max-width: 400px;
+        }
+        .pills li {
+            padding: 10px 0;
+            position: relative;
+            left: 1.5em;
+            margin-bottom: 0.75em;
+            padding-left: 1em;
+            border-bottom-left-radius: 70em;
+            border-top-left-radius: 70em;
+            background: #fadfcc;
+            font-family: Helvetica;
+
+        }
+        .pills li:before {
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -1.5em;
+            width: 1.875em;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            background: #fabccb;
+            border-bottom-left-radius: 70em;
+            border-top-left-radius: 70em;
+            font-family: Helvetica;
+
+        }
+    </style>
+    <style>
+        .but button{
+            background: #fabccb;
+            font-family: Helvetica;
+        }
+    </style>
+    <title>Сегодня мне нужно вот это</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+<nav class="top-menu">
+    <ul class="menu-main">
+        <li class="left-item"><a href="needThis">Список</a></li>
+        <li class="left-item"><a href="addItem">Добавить</a></li>
+    </ul>
+    <a class="navbar-logo" href="main"><img src="https://cdn1.savepice.ru/uploads/2019/10/18/86658664a269f4c07a1f65d47e98e6ec-full.png"></a>
+</nav>
+<div>
+    <h1 align="center">Мне нужно больше:</h1>
+{{#items}}
+    <div>
+        <ol class="pills">
+            <li>{{id}}. {{name}}  {{count}}шт</li>
+
+        </ol>
+    </div>
+{{/items}}
+    <input type="text" name="name" placeholder="номер"/><button class="but" type="submit" name="del">Забыть</button>
+
+</div>
+<script>
+
+    document.querySelector("[type=\"submit\"]").onclick = () => {
+        alert('Ты точно принёс?');
+
+        var url = "http://localhost:8080/needThis/delete";
+        var item = document.querySelector("[name=\"name\"]").value;
+
+        fetch(url + '/' + item, {
+            method: 'delete'
+        });
+    }
+</script>
+
+</body>
+</html>
+<div>
+
+</div>
