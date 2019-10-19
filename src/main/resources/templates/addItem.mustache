@@ -2,7 +2,10 @@
 <html>
 <head>
     <style>
-        body {background: url(https://sun9-44.userapi.com/c607430/v607430889/41c2/fIeKMRmRYUM.jpg) no-repeat; background-size: 100%; }
+        body {
+            background: url(https://sun9-52.userapi.com/c857532/v857532203/aada5/qx75SH3KKjM.jpg) no-repeat;
+            background-size: 100%;
+        }
     </style>
     <title>Всё что нужно</title>
     <style>
@@ -67,6 +70,94 @@
             .menu-main li {display: block;}
         }
     </style>
+    <style>
+        .in div {
+            --field-size: 50px;
+            --field-border-color: #ccc;
+            margin: 0 auto;
+            font-size: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: #ffffff;
+            border-radius: 5px;
+            position: relative;
+            width: 400px;
+            overflow: hidden;
+            display: flex;
+            background: white;
+        }
+
+        .in button {
+            --field-size: 50px;
+            --field-border-color: #ccc;
+            font-size: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background-color: #523d3a;
+            color: white;
+            position: relative;
+            width: 150px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            font-family: Helvetica;
+            border: none;
+            text-align:center;
+
+            display: block;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+        .in input {
+            --field-size: 50px;
+            --field-border-color: #ccc;
+            margin: 0 auto;
+            margin-top: 5px;
+            font-size: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: #ffffff;
+            border-radius: 5px;
+            position: relative;
+            width: 400px;
+            height: 30px;
+            overflow: hidden;
+            display: flex;
+            font-family: Helvetica;
+        }
+        .in li {
+            --field-size: 50px;
+            --field-border-color: #ccc;
+            margin: 0 auto;
+            font-size: 2rem;
+            align-items: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: #ffffff;
+            border-radius: 5px;
+            position: relative;
+            width: 800px;
+            height: 50px;
+            overflow: hidden;
+            display: flex;
+            text-align: center;
+            font-family: Helvetica;
+
+        }
+
+
+        .in input[type="text"] {
+            padding: 1em;
+            border: 0;
+            flex: 1;
+            font-size: 1rem;
+            --placeholder-color: #ababab;
+            font-family: Helvetica;
+        }
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
 </head>
@@ -78,18 +169,18 @@
     </ul>
     <a class="navbar-logo" href="main"><img src="https://cdn1.savepice.ru/uploads/2019/10/18/86658664a269f4c07a1f65d47e98e6ec-full.png"></a>
 </nav>
-<div>
+<div class="in">
     <form method="post">
-        <input type="text" name="name" placeholder="Нужно больше" />
-        <input type="number" name="count" placeholder="Вот столько" />
-        <button type="submit" >Закинуть</button>
+        <input class="in" type="text" name="name" placeholder="Нужно больше" /><input class="in" type="number" name="count" placeholder="Вот столько" /><button class="in" type="submit" >Закинуть</button>
     </form>
 </div>
 
 {{#items}}
     <div>
-        <p>{{id}}. {{name}} {{count}}шт</p>
-</div>
+        <ol class="in">
+            <li>{{id}}. {{name}}  {{count}}шт</li>
+        </ol>
+    </div>
 {{/items}}
 
 </body>

@@ -12,7 +12,7 @@ import java.util.Map;
 
 
 @Controller
-    public class KateController {
+public class KateController {
     @Autowired
     private ItemRepo itemRepo;
 
@@ -24,7 +24,8 @@ import java.util.Map;
         return "needThis";
     }
 
-        @GetMapping("/addItem")
+
+    @GetMapping("/addItem")
     public String addItem(Map<String, Object> model) {
         Iterable<Item> items = itemRepo.findAll();
         model.put("items", items);
@@ -47,19 +48,17 @@ import java.util.Map;
     }
 
 
-
-
-
     @RequestMapping(value = "needThis/delete/{id}", method = RequestMethod.DELETE)
-            public String remove(@PathVariable(value = "id") Long id, Map<String, Object> model) {
-        Item item = itemRepo.findById(id).orElseThrow(() -> new RuntimeException("Employee not found for this id :: " + id));;
+    public String remove(@PathVariable(value = "id") Long id, Map<String, Object> model) {
+        Item item = itemRepo.findById(id).orElseThrow(() -> new RuntimeException("Employee not found for this id :: " + id));
         itemRepo.delete(item);
         Iterable<Item> items = itemRepo.findAll();
+        model.put("items", items);
         itemRepo.findAll();
-        model.put("items", item);
-
         return "needThis";
     }
+
+
 
 }
 
