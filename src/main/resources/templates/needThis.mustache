@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:content="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <style>
         body {
@@ -211,25 +211,23 @@
 {{/items}}
 <div  class="in">
     <input class="in" type="text" name="name" placeholder="номер" /><button class="in" type="submit" >Забыть</button>
-    <a href="needThis"><button class="in"  type="submit">Обновить</button></a>
+    <a href="needThis"><button style="display: none;" class="in" id="2" type="submit">Обновить</button></a>
 </div>
 <script>
 
     document.querySelector("[type=\"submit\"]").onclick = () => {
         alert('Ты точно принёс?');
 
-        var url = "http://176.9.59.8:8080/needThis/delete";
+        var url = "http://localhost:8080/needThis/delete";
         var item = document.querySelector("[name=\"name\"]").value;
 
         fetch(url + '/' + item, {
             method: 'delete'
         });
+        setTimeout('document.getElementById("2").click()',500)
 
-    }
-
+            }
 </script>
+
 </body>
 </html>
-<div>
-
-</div>
